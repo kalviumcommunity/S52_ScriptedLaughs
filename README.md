@@ -1,11 +1,11 @@
 
-**Title**: List of Prank Call Scripts
+**Title** : List of Prank Call Scripts
 
-**Idea Description**:
+**Idea Description** :
 
 The *"List of Prank Call Scripts"* project aims to create a platform where users can access and contribute to a collection of light-hearted and humorous prank call scripts. 
 
-**Features**:
+**Features** :
 
 - **User Accounts  and Personalization**: Users can create accounts, save favorite scripts, and personalize their experience.
 
