@@ -20,3 +20,5 @@ The *"List of Prank Call Scripts"* project aims to create a platform where users
 - **Category Filter**: Users can filter prank scripts based on categories such as funny, scary, romantic, allowing for easy selection based on their mood or preferences.
 
 - **Share the Scripts**: Users can easily share their favorite prank call scripts to external platforms. 
+
+**Deployed link**:- https://api-27il.onrender.com/ping
