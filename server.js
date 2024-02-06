@@ -7,7 +7,7 @@ const {startDatabase,stopDatabase,isConnect} = require('./db')
 
 const app = express();
 
-app.use("/mugilan",routes);
+app.use("/prankscripts",routes);
 
 app.listen(PORT,()=>{
     startDatabase();
