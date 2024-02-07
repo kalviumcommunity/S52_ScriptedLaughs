@@ -18,7 +18,7 @@ router.get('/:id',(req,res)=>{
 
 router.post('/api/data',(req,res)=>{
     const data = req.body;
-    res.status(200).json({"message":"Post request","data":data});
+    res.status(200).json({"message":"Post request"});
 });
 
 router.put('/api/update',(req,res)=>{
