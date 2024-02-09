@@ -22,3 +22,5 @@ The *"List of Prank Call Scripts"* project aims to create a platform where users
 - **Share the Scripts**: Users can easily share their favorite prank call scripts to external platforms. 
 
 **Deployed link**:- https://api-27il.onrender.com/ping
+
+**Deployed link Cloudflare**:- [text](https://3976e0c7.sriptedlaughs.pages.dev/)

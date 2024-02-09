@@ -6,6 +6,6 @@ const App = () => {
       <h1>SCRIPTED LAUGHS</h1>
     </div>
   )
-}
+};
 
-export default App
+export default App;
