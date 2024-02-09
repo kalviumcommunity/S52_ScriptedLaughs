@@ -23,4 +23,4 @@ The *"List of Prank Call Scripts"* project aims to create a platform where users
 
 **Deployed link**:- https://api-27il.onrender.com/ping
 
-**Deployed link Cloudflare**:- [text](https://3976e0c7.sriptedlaughs.pages.dev/)
+**Deployed link Cloudflare**:- https://3976e0c7.sriptedlaughs.pages.dev/
