@@ -1,15 +1,25 @@
 const express = require('express');
 const routes = require('./router');
+const { startDatabase } = require('./db');
+const cors = require('cors');
 require('dotenv').config();
-// const mongoose = require('mongoose');
-const PORT = 8000;
-const {startDatabase,stopDatabase,isConnect} = require('./db')
 
 const app = express();
+const PORT = 8000;
 
-app.use("/prankscripts",routes);
 
-app.listen(PORT,()=>{
-    startDatabase();
-    console.log("server is running on",PORT);
-})
+app.use(express.json());
+app.use(cors());
+app.use("/prankscripts", routes);
+
+startDatabase((err, db) => {
+    if (err) {
+        console.log("Error connecting to MongoDB:", err);
+        return;
+    }
+    console.log("Connected to MongoDB");
+});
+
+app.listen(PORT, () => {
+    console.log("Server is running on port", PORT);
+});
