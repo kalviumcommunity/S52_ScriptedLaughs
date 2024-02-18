@@ -7,7 +7,7 @@ const FetchData = () => {
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
-                const res = await axios.get('http://localhost:8000/prankscripts/');
+                const res = await axios.get('https://api-27il.onrender.com/prankscripts/');
                 setData(res.data);
             }
             catch(err){
@@ -27,7 +27,6 @@ const FetchData = () => {
                     <p><b>Title: </b>{item.title}</p>
                     <p><b>Description: </b>{item.description}</p>
                     <p><b>Category: </b>{item.category}</p>
-                    <p><b>Difficulty: </b>{item.difficulty}</p>
                     <hr />
                 </div>
             ))}

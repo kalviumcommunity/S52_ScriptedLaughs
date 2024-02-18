@@ -8,7 +8,23 @@ const taskSchema = new mongoose.Schema({
     title: String,
     description: String,
     category: String,
-    difficulty: String
 }, { versionKey: false });
 
-module.exports = mongoose.model("datas", taskSchema);
+const loginSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        require:true
+    },
+    email:{
+        type:String,
+        require:true
+    },
+    password:{
+        type:String,
+        require:true
+    }
+},{versionKey:false})
+
+const TaskSchema = mongoose.model("datas", taskSchema);
+const LoginShema = mongoose.model("details",loginSchema);
+module.exports = {TaskSchema,LoginShema}

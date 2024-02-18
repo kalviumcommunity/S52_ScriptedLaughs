@@ -1,42 +1,75 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Protest+Strike&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.contentContainer{
+  width:800px;
+  padding:30px;
+  /* border:2px solid red; */
+  margin-top:-30px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bodyContainer{
+  display:flex;
+  justify-content:center;
+  padding:30px;
+  background-color: #F8F3EC;
+  /* border:2px solid red; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.contentBox{
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  background-color:white;
+  border-top:0px;
+  padding:20px;
+  /* margin-bottom:20px; */
+  border-radius:0px 0px 7px 7px;
 }
 
-.card {
-  padding: 2em;
+.icon{
+  margin-right:10px;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.headInfo{
+  color:white;
+  padding:10px;
+  border-radius:7px 7px 0px 0px;
+  background-color: #1976D2;
+}
+
+.title{
+  font-family: "Mukta", sans-serif; 
+}
+
+.category{
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+  margin-top:-10px;
+  font-size:13px;
+  margin-left:5px;
+}
+
+.loader{
+  height:150px;
+}
+
+.loaderOpt{
+  position: fixed;
+  top:45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.totalContent{
+  border-radius:8px;
+  margin-bottom:20px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+

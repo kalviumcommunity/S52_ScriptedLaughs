@@ -1,4 +1,26 @@
-const Task = require('../models/dataModel');
+const {TaskSchema,LoginShema} = require('../models/dataModel');
+
+
+const showAllLoginInfo = async(req,res) =>{
+    try{
+        const showDetails = await LoginShema.find({})
+        res.status(200).json(showDetails)
+    }
+    catch(err){
+        res.status(400).json({message:err.message})
+    }
+}
+const createLoginInfo = async(req,res)=>{
+    const {name,email,password} = req.body
+    try{
+        const creatInfo = await LoginShema.create({name,email,password})
+        res.status(200).json(creatInfo)
+    }
+    catch(err){
+        res.status(400).json({message:err.message})
+    }
+}
+
 
 const getTask = async(req,res)=>{
     res.send("pong");
@@ -6,7 +28,7 @@ const getTask = async(req,res)=>{
 
 const getAllTasks = async(req,res)=>{
     try{
-        const tasks = await Task.find();
+        const tasks = await TaskSchema.find();
         res.status(200).json(tasks); 
     }
     catch(err){
@@ -16,7 +38,7 @@ const getAllTasks = async(req,res)=>{
 
 const getTaskById = async (req,res)=>{
     try{
-        const tasks = await Task.findById(req.params.id);
+        const tasks = await TaskSchema.findById(req.params.id);
         if(!tasks){
             res.status(404).json({message:"Task not found"}) 
         }
@@ -27,9 +49,9 @@ const getTaskById = async (req,res)=>{
 };
 
 const createTask = async (req,res) =>{
-    const {username,title,description,category,difficulty}  = req.body;
+    const {username,title,description,category}  = req.body;
     try{
-        const tasks = await Task.create({username,title,description,category,difficulty});
+        const tasks = await TaskSchema.create({username,title,description,category});
         res.status(200).json(tasks); 
     }
     catch(err){
@@ -40,7 +62,8 @@ const createTask = async (req,res) =>{
 const updateTask = async (req,res) => {
     try{
         const {id} = req.params;
-        const tasks = await Task.findByIdAndUpdate({_id:id},req.body,{new:true});
+        const {username,title,description,category} = req.body
+        const tasks = await TaskSchema.findByIdAndUpdate({_id:id},req.body,{new:true});
         if(!tasks){
             return res.status(400).json({message:"Task not found"}); 
         }
@@ -53,7 +76,8 @@ const updateTask = async (req,res) => {
 
 const deleteTask = async (req,res) =>{
     try{
-        const tasks = await Task.findByIdAndDelete(req.params.id)
+        const id = req.params.id;
+        const tasks = await TaskSchema.findByIdAndDelete({_id:id})
         if(!tasks){
             return res.status(404).json({message:"Task not found"})
         }
@@ -64,5 +88,5 @@ const deleteTask = async (req,res) =>{
     }
 }
 
-module.exports = {getAllTasks,getTaskById,updateTask,deleteTask,createTask,getTask}
+module.exports = {getAllTasks,getTaskById,updateTask,deleteTask,createTask,getTask,createLoginInfo,showAllLoginInfo}
  
