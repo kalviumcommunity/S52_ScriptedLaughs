@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
-import './index.css'
+// import './index.css'
 // import Datas from './components/Datas.jsx'
-import FetchData from './components/FetchData.jsx'
+// import FetchData from './components/FetchData.jsx'
+// import PostFormData from './components/PostFormData.jsx'
+import App from './App.jsx';
+// import PostFormData from './components/PostFormData.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <FetchData/>
+    <App/>
   </React.StrictMode>,
 )
