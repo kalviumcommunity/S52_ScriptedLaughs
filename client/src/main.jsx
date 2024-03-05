@@ -1,15 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-// import './index.css'
-// import Datas from './components/Datas.jsx'
-// import FetchData from './components/FetchData.jsx'
-// import PostFormData from './components/PostFormData.jsx'
-import App from './App.jsx';
-// import PostFormData from './components/PostFormData.jsx'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+// import Profile from './components/Profile';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
     <App/>
-  </React.StrictMode>,
-)
+  </BrowserRouter>
+);

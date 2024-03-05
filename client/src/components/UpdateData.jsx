@@ -2,47 +2,44 @@
   import 'bootstrap/dist/css/bootstrap.min.css';
   import Button from 'react-bootstrap/Button';
   import Form from 'react-bootstrap/Form';
-  import { useNavigate, useParams } from 'react-router-dom';
+  import { useNavigate, useParams, useLocation } from 'react-router-dom';
   import axios from 'axios'
 
   const UpdateData = () => {
     const {id} = useParams()
-    const [username,setUserName] = useState('');
+    // const [username,setUserName] = useState('');
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
     const [category,setCategory] = useState('');
     const navigate = useNavigate();
     const [isButtonDisabled,setIsButtonDisabled] = useState(true);
+    const location = useLocation()
 
+
+const data = location.state 
+// console.log(data)
     useEffect(()=>{
-      axios.get(`http://localhost:8000/prankscripts/getUserData/${id}`)
-      .then(res => {
-        console.log(res)
-
-        setUserName(res.data.username)
-        setTitle(res.data.title)
-        setDescription(res.data.description)
-        setCategory(res.data.category)
-
-      })
-      .catch(err => console.log(err)) 
+        // setUserName(data.username)
+        setTitle(data.title)
+        setDescription(data.description)
+        setCategory(data.category)
     },[])
 
     useEffect(()=>{
-      if(username.trim()===''|| title.trim()===''|| description.trim()===''|| category.trim()===''){
+      if(title.trim()===''|| description.trim()===''|| category.trim()===''){
         setIsButtonDisabled(true);
       }
       else{
         setIsButtonDisabled(false);
       }
-    },[username,title,description,category])
+    },[title,description,category])
 
     const update=(e)=>{
       e.preventDefault();
-      axios.put(`http://localhost:8000/prankscripts/updateData/${id}`, {username,title,description,category})
+      axios.put(`http://localhost:8000/prankscripts/updateData/${id}`, {title,description,category})
       .then(res =>{
         console.log(res)
-        navigate("/")
+        navigate("/home")
       })
       .catch(err => console.log(err))
     }
@@ -55,10 +52,10 @@
         <div className='col-md-5'>
           <Form className='mt-3 p-4 rounded-3' onSubmit={update}>
             <h1 className='text-primary'>Update Script</h1>
-            <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+            {/* <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
               <Form.Label className='mt-3'>Username</Form.Label>
               <Form.Control type="text" placeholder="Enter username" value={username} onChange={(e)=>setUserName(e.target.value)} />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Title</Form.Label>

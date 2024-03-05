@@ -5,21 +5,22 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const PostFormData = () => {
+const PostFormData = ({email,username}) => {
 
-  const [username,setUsername]=useState('');
+  
   const [title,setTitle] = useState('');
   const [description,setDescription] = useState('');
   const [category,setCategory] = useState('');
   const [isButtonDisabled,setIsButtonDisabled] = useState(true);
   const navigate = useNavigate();
-
+  console.log(email)
+  console.log(username)
   const Submit=(e)=>{
     e.preventDefault();
-    axios.post("http://localhost:8000/prankscripts/create/", {username,title,description,category})
+    axios.post("http://localhost:8000/prankscripts/create/", {username,title,description,category,email})
     .then(result=> {
       console.log(result)
-      navigate("/")
+      navigate("/home")
     })
     .catch(err=>console.log(err))
   }
@@ -39,11 +40,7 @@ const PostFormData = () => {
       <div className='col-md-5'>
         <Form className='mt-3 p-4 rounded-3' onSubmit={Submit}>
           <h1 className='text-primary'>Add Script</h1>
-          <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-            <Form.Label className='mt-3'>Username</Form.Label>
-            <Form.Control type="text" placeholder="Enter username" onChange={(e)=>setUsername(e.target.value)}/>
-          </Form.Group>
-
+          
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" placeholder="Enter title" onChange={(e)=>setTitle(e.target.value)} />
