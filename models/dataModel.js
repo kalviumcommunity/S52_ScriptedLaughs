@@ -1,23 +1,26 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-    username: {
+    email: {
         type: String,
-        required: true
     },
     title: String,
     description: String,
     category: String,
+    username:String,
+
 }, { versionKey: false });
 
-const loginSchema = new mongoose.Schema({
+const registerSchema = new mongoose.Schema({
     name:{
         type:String,
-        require:true
+        require:true,
+        lowercase:true
     },
     email:{
         type:String,
         require:true
+
     },
     password:{
         type:String,
@@ -25,6 +28,8 @@ const loginSchema = new mongoose.Schema({
     }
 },{versionKey:false})
 
+
+
 const TaskSchema = mongoose.model("datas", taskSchema);
-const LoginShema = mongoose.model("details",loginSchema);
-module.exports = {TaskSchema,LoginShema}
+const RegisterSchema = mongoose.model("details",registerSchema);
+module.exports = {TaskSchema,RegisterSchema}
