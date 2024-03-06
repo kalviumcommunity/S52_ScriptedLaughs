@@ -12,29 +12,28 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:8000/prankscripts/loginInfo', { email, password });
-            if (response.status === 200) {
-                const token = response.data.token;
-                // localStorage.setItem('token', token);
-                Cookies.set('token', token, { expires: 7 });
-                toast.success('Login successful!', { autoClose: 2000 });
-                navigate('/home');
-                window.location.reload();
-
-            } else {
-                toast.error('Email or password is incorrect!', { autoClose: 2000 });
-            }
-        } catch (error) {
-            if (error.response.status === 404) {
-                toast.error('Email not found!', { autoClose: 2000 });
-            } else {
-                toast.error('Login failed!', { autoClose: 2000 });
-            }
-            console.error('Login failed:', error);
+    e.preventDefault();
+    try {
+        const response = await axios.post('http://localhost:8000/prankscripts/loginInfo', { email, password });
+        if (response.status === 200) {
+            const token = response.data.token;
+            Cookies.set('token', token, { expires: 7 });
+            toast.success('Login successful!', { autoClose: 2000 });
+            navigate('/home');
+            window.location.reload();
+        } else {
+            toast.error('Email or password is incorrect!', { autoClose: 2000 });
         }
-    };
+    } catch (error) {
+        if (error.response && error.response.status === 404) {
+            toast.error('Email not found!', { autoClose: 2000 });
+        } else {
+            toast.error('Login failed!', { autoClose: 2000 });
+        }
+        console.error('Login failed:', error);
+    }
+};
+
 
     return (
         <div className="login-container">

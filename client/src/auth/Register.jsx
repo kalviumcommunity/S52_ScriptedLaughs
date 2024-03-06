@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Register.css'; // Import the CSS file
+import './Register.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as yup from 'yup';
@@ -37,6 +37,7 @@ const Register = () => {
 
     return (
         <div className="register-container">
+            <ToastContainer/>
             <h2 className="register-heading">Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>
                 <input className="register-input" type="text" placeholder="Name" value={name} autoComplete='username' onChange={(e) => setName(e.target.value)} />
@@ -45,7 +46,6 @@ const Register = () => {
                 <button className="register-button" type="submit">Register</button>
             </form>
             <p className="register-link">Already have an Account <Link to='/login'>Click here</Link></p>
-            <ToastContainer/>
         </div>
     );
 };
