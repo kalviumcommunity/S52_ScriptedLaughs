@@ -21,11 +21,15 @@ const createRegisterInfo = async (req, res) => {
     try {
         validateRegistration(req, res, async () => {
             const emailExists = await RegisterSchema.findOne({ email });
-            if (emailExists) {
+            if(emailExists){
                 return res.status(400).json("Email already exists");
             }
+            const usernameExists = await RegisterSchema.findOne({ name });
+            if (usernameExists) {
+                return res.status(400).json({ message: "Username already exists" });
+            }
             const hash = await bcrypt.hash(password, 10);
-            const createRegisterInfo = await RegisterSchema.create({ name, email, password: hash });
+            const createRegisterInfo = await RegisterSchema.create({ name, email, password:hash});
             res.status(200).json(createRegisterInfo);
         });
     } catch (err) {

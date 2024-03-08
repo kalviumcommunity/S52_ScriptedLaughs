@@ -17,7 +17,7 @@ const PostFormData = ({email,username}) => {
   console.log(username)
   const Submit=(e)=>{
     e.preventDefault();
-    axios.post("http://localhost:8000/prankscripts/create/", {username,title,description,category,email})
+    axios.post("https://api-27il.onrender.com/prankscripts/create/", {username,title,description,category,email})
     .then(result=> {
       console.log(result)
       navigate("/home")
