@@ -22,7 +22,7 @@ const Profile = ({ userData }) => {
     const avatarUrl = `https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=${userData.name}`;  
 
     const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/prankscripts/deleteData/${id}`)
+    axios.delete(`https://api-27il.onrender.com/prankscripts/deleteData/${id}`)
       .then(() => {
         setFilteredData(prevData => prevData.filter(item => item._id !== id));
       })

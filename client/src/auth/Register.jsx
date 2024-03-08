@@ -22,7 +22,7 @@ const Register = () => {
         e.preventDefault();
         try {
             await schema.validate({ name, email, password }, { abortEarly: false });
-            const response = await axios.post('http://localhost:8000/prankscripts/registerPage', { name, email, password });
+            const response = await axios.post('https://api-27il.onrender.com/prankscripts/registerPage', { name, email, password });
             if (response.status === 200) {
                 toast.success('Registration successful!', { autoClose: 2000 });
                 navigate('/login');

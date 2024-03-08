@@ -36,7 +36,7 @@ const data = location.state
 
     const update=(e)=>{
       e.preventDefault();
-      axios.put(`http://localhost:8000/prankscripts/updateData/${id}`, {title,description,category})
+      axios.put(`https://api-27il.onrender.com/prankscripts/updateData/${id}`, {title,description,category})
       .then(res =>{
         console.log(res)
         navigate("/home")

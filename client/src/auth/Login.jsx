@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post('http://localhost:8000/prankscripts/loginInfo', { email, password });
+        const response = await axios.post('https://api-27il.onrender.com/prankscripts/loginInfo', { email, password });
         if (response.status === 200) {
             const token = response.data.token;
             Cookies.set('token', token, { expires: 7 });

@@ -17,7 +17,7 @@ const App = () => {
 
     useEffect(()=>{
         const token = Cookies.get('token') || '';
-        axios.post('http://localhost:8000/prankscripts/getIndividualData', {token})
+        axios.post('https://api-27il.onrender.com/prankscripts/getIndividualData', {token})
           .then(res => {
             setUserData(res.data)
           })
