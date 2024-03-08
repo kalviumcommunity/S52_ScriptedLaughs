@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import Logout from './auth/Logout';
 import Home from './components/Home';
 import MainPage from './auth/MainPage';
@@ -33,7 +33,6 @@ const App = () => {
     },[userData]);
 
     return (
-        // <Router>
             <Routes>
                 <Route exact path="/" element={<MainPage/>} />
                 <Route exact path="/profile" element={<Profile  userData={userData} username={userData.name} />}/>
@@ -44,7 +43,6 @@ const App = () => {
                 <Route exact path="/create" element={<PostFormData email={userData.email} username={userData.name} />} />
                 <Route exact path="/update/:id" element={<UpdateData/>} />
             </Routes>
-        // </Router>
     );
 };
 
